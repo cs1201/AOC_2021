@@ -6,6 +6,7 @@ def part_two(data):
     ...
 
 with open("data/day_X_input.txt") as f:
-    data = [int(x.strip()) for x in f.readlines()]
+    data = [x.strip() for x in f.readlines()]
+    data = map(int(), data) # Comment out if strings needed
     print(f"Part One: {part_one(data)}")
     print(f"Part Two: {part_two(data)}")
