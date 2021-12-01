@@ -1,7 +1,12 @@
+import sys
+sys.path.insert(1, '../util')
+from profiler import profile
 
+@profile
 def part_one(data):
     return sum([1 for i, x in enumerate(data[1:]) if x > data[i]])
 
+@profile
 def part_two(data):
     return sum([1 for i, x in enumerate(data[3:]) if x > data[i]])
 

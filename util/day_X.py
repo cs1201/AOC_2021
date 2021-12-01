@@ -1,3 +1,6 @@
+import sys
+sys.path.insert(1, '../util')
+from profiler import profile
 
 def part_one(data):
     ...
