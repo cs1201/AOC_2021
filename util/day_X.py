@@ -2,9 +2,11 @@ import sys
 sys.path.insert(1, '../util')
 from profiler import profile
 
+@profile
 def part_one(data):
     ...
 
+@profile
 def part_two(data):
     ...
 
