@@ -34,21 +34,21 @@ with fileinput.FileInput(new_py_file, inplace=True, backup='.bak')as py_file:
 os.remove(os.path.join(day_dir, f"day_{day_number}.py.bak"))
 print(f"Created new python file: {new_py_file}")
 
-# Description file
-base_url = "https://adventofcode.com/2021/day/"
-day_url = f"{base_url}{day_number}"
-r = requests.get(day_url)
-if (r.status_code != 200):
-    print("ERROR: Could not obtain problemn description info from AOC website")
-else:
-    data = bs(r.content, 'html.parser')
-    description = data.find("article", class_="day-desc")
+# # Description file
+# base_url = "https://adventofcode.com/2021/day/"
+# day_url = f"{base_url}{day_number}"
+# r = requests.get(day_url)
+# if (r.status_code != 200):
+#     print("ERROR: Could not obtain problemn description info from AOC website")
+# else:
+#     data = bs(r.content, 'html.parser')
+#     description = data.find("article", class_="day-desc")
 
-    description_file = os.path.join(day_dir, f"day_{day_number}_desc.txt")
-    with open(description_file, "w+") as f:
-        for line in description.get_text().splitlines():
-            f.write(line + os.linesep)
-    print(f"Created new problem description file: {description_file}")
+#     description_file = os.path.join(day_dir, f"day_{day_number}_desc.txt")
+#     with open(description_file, "w+") as f:
+#         for line in description.get_text().splitlines():
+#             f.write(line + os.linesep)
+#     print(f"Created new problem description file: {description_file}")
 
 # Create empty data .txt file
 input_file = os.path.join(day_dir, f"day_{day_number}_input.txt")
