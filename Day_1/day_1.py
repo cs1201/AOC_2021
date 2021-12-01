@@ -1,9 +1,9 @@
 
 def part_one(data):
-    return sum([(1 if x > data[i] else 0) for i, x in enumerate(data[1:])])
+    return sum([1 for i, x in enumerate(data[1:]) if x > data[i]])
 
 def part_two(data):
-    return sum([(1 if x > data[i] else 0) for i, x in enumerate(data[3:])])
+    return sum([1 for i, x in enumerate(data[3:]) if x > data[i]])
 
 with open("day_1_input.txt") as f:
     data = [x.strip() for x in f.readlines()]
