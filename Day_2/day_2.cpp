@@ -38,10 +38,7 @@ int part_2(std::vector<instruction_t> data)
         if (!instruction.direction.compare("forward"))
         {
             x += instruction.magnitude;
-            if (a > 0)
-            {
-                y += instruction.magnitude * a;
-            }
+            y += instruction.magnitude * a;
         }
         else if (!instruction.direction.compare("up"))
         {
