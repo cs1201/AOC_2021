@@ -4,7 +4,7 @@ from profiler import profile
 
 @profile
 def part_one(data):
-    return sum(m for d, m in data if d == "forward") * sum(m for d, m in data if d == "down") - sum(m for d, m in data if d == "up")
+    return sum(m for d, m in data if d == "forward") * sum(m * (1 if d == "down" else -1) for d, m in data if d == "down" or d == "up")
 
 @profile
 def part_two(data):
@@ -14,10 +14,8 @@ def part_two(data):
             x += m
             if a:
                 y += m * a
-        if d == "up":
-            a -= m
-        if d == "down":
-            a += m
+        if d == "up" or d == "down":
+            a += m * (1 if d == "down" else -1)
     return x * y
 
 with open("day_2_input.txt") as f:
