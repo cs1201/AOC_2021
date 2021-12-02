@@ -57,12 +57,12 @@ int main()
     std::string input_filename = "./day_2_input.txt";
     std::ifstream input(input_filename); 
     std::vector<instruction_t> data;
-
-    for(std::string line; getline(input, line);)
-    {   
-        int split_point = line.find(" ");
-        instruction_t ins = { line.substr(0, split_point), std::stoi(line.substr(split_point+1, line.size()))};
-        data.push_back(ins);
+    std::string dir, mag;
+    
+    while(!input.eof())
+    {
+        input >> dir >> mag;
+        data.push_back({ dir, std::stoi(mag) });
     }
 
     std::cout << "Part 1: " << part_1(data) << std::endl;
