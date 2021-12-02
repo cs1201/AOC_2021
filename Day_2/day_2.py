@@ -4,24 +4,16 @@ from profiler import profile
 
 @profile
 def part_one(data):
-    x, y = 0, 0
-    for d, m in data:
-        if d == "forward":
-            x += m
-        if d == "up":
-            y -= m
-        if d == "down":
-            y += m
-    return x * y
+    return sum(m for d, m in data if d == "forward") * sum(m for d, m in data if d == "down") - sum(m for d, m in data if d == "up")
 
 @profile
 def part_two(data):
     x, y, a = 0, 0, 0
     for d, m in data:
         if d == "forward":
-            x += int(m)
+            x += m
             if a:
-                y += int(m) * a
+                y += m * a
         if d == "up":
             a -= m
         if d == "down":
