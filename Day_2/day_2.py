@@ -12,8 +12,7 @@ def part_two(data):
     for d, m in data:
         if d == "forward":
             x += m
-            if a:
-                y += m * a
+            y += m * a
         if d == "up" or d == "down":
             a += m * (1 if d == "down" else -1)
     return x * y
