@@ -18,13 +18,13 @@ def part_one(data):
 @profile
 def part_two(data):
     o = c = data[:]
-    i = j = 0
-    while(len(o) > 1 and i < len(flipped(o))):
-        o = [x for x in o if x[i] == ("1" if any(most_common(flipped(o)[i]) == y for y in ["1", -1]) else "0")]
+    i = 0
+    while(i < len(data)):
+        if len(o) > 1:
+            o = [x for x in o if x[i] == ("1" if any(most_common(flipped(o)[i]) == y for y in ["1", -1]) else "0")]
+        if len(c) > 1:
+            c = [x for x in c if x[i] == ("0" if any(most_common(flipped(c)[i]) == y for y in ["1", -1]) else "1")]
         i += 1
-    while(len(c) > 1 and j < len(flipped(c))):
-        c = [x for x in c if x[j] == ("0" if any(most_common(flipped(c)[j]) == y for y in ["1", -1]) else "1")]
-        j += 1
     return int(''.join(o[0]),2) * int(''.join(c[0]),2)
 
 with open("day_3_input.txt") as f:
