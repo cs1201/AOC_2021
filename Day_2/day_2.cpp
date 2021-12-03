@@ -54,8 +54,7 @@ int part_2(std::vector<instruction_t> data)
 
 int main()
 {
-    std::string input_filename = "./day_2_input.txt";
-    std::ifstream input(input_filename); 
+    std::ifstream input("./day_2_input.txt"); 
     std::vector<instruction_t> data;
     std::string dir, mag;
     
