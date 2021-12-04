@@ -36,15 +36,14 @@ def part_one(draw, boards):
 @profile
 def part_two(draw, boards):
     winning_boards = []
-    won_boards = []
+    already_won = []
     for num in draw:
         for i, board in enumerate(boards):
             boards[i] = check_number(board, num)
-            if bingo(board) and (i not in won_boards):
-                won_boards.append(i)
+            if bingo(board) and (i not in already_won):
+                already_won.append(i)
                 winning_boards.append((sum_unmarked(board) * num))
-                if len(winning_boards) >= len(boards):
-                    return winning_boards[-1]
+    return winning_boards[-1]
 
 with open("day_4_input.txt") as f:
     input_f = f.readlines()
@@ -59,5 +58,5 @@ with open("day_4_input.txt") as f:
                 boards.append(board)
                 board = []
 
-    print(f"Part One: {part_one(draw, boards[:])}")
-    print(f"Part Two: {part_two(draw, boards[:])}")
+    print(f"Part One: {part_one(draw, boards)}") # 39984
+    print(f"Part Two: {part_two(draw, boards)}") #  8468
