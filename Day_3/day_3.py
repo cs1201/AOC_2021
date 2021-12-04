@@ -21,9 +21,9 @@ def part_two(data):
     i = 0
     while(i < len(data)):
         if len(o) > 1:
-            o = [x for x in o if x[i] == ("1" if any(most_common(flipped(o)[i]) == y for y in ["1", -1]) else "0")]
+            o = [x for x in o if x[i] == ("1" if most_common(flipped(o)[i]) in ["1", -1] else "0")]
         if len(c) > 1:
-            c = [x for x in c if x[i] == ("0" if any(most_common(flipped(c)[i]) == y for y in ["1", -1]) else "1")]
+            c = [x for x in c if x[i] == ("0" if most_common(flipped(c)[i]) in ["1", -1] else "1")]
         i += 1
     return int(''.join(o[0]),2) * int(''.join(c[0]),2)
 
