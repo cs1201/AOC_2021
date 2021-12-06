@@ -6,9 +6,8 @@ from collections import Counter
 @profile
 def model_lf(days, data):
     for _ in range(days):
-        zeros = data.pop(0)
-        data.append(zeros)
-        data[6] += zeros
+        data.append(data.pop(0))
+        data[6] += data[-1]
     return sum(data)
 
 with open("day_6_input.txt") as f:
