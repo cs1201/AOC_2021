@@ -8,8 +8,7 @@ def model_lf(days, data):
     for _ in range(days):
         zeros = data.pop(0)
         data.append(zeros)
-        if zeros:
-            data[6] += zeros
+        data[6] += zeros
     return sum(data)
 
 with open("day_6_input.txt") as f:
