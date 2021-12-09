@@ -14,13 +14,7 @@ def get_adjacent_cells(data, x_coord, y_coord):
     return result
 
 def find_low_points(data):
-    lps = []
-    for y, row in enumerate(data):
-        for x, point in enumerate(row):
-            adj = get_adjacent_cells(data, x,y)
-            if all([x > point for x,_ in adj]):
-                lps.append((point, Point(x,y)))
-    return lps
+    return [(val, Point(x,y)) for y,r in enumerate(data) for x,val in enumerate(r) if all([x > val for x,_ in get_adjacent_cells(data, x,y)])]
 
 def basin_size(data, lp, visited):
     val, co = lp
