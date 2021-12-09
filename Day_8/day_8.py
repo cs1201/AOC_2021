@@ -71,6 +71,6 @@ def part_two(data):
     return output
 
 with open("/Users/cston/Developer/Personal/AOC_2021/Day_8/day_8_input.txt") as f:
-    data = [[x.split() for x in line.split('|')] for line in f.readlines() ]
+    data = [[x.split() for x in line.split('|')] for line in f.readlines()]
     print(f"Part One: {part_one(data)}") # 321 
     print(f"Part Two: {part_two(data)}") # 1028926
