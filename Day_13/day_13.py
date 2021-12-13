@@ -3,12 +3,12 @@ sys.path.insert(1, '../util')
 from profiler import profile
 from collections import defaultdict
 
-paper = defaultdict(lambda: '.')
+paper = defaultdict(lambda: ' ')
 
 def print_paper(paper):
     max_x = max([k[0] for k in paper.keys()])
     max_y = max([k[1] for k in paper.keys()])
-    out='\n'
+    out = ''
     for y in range(max_y+1):
         row=''
         for x in range(max_x+1):
@@ -37,7 +37,7 @@ def part_one(paper, folds):
 def part_two(paper, folds):
     for fold in folds:
         paper = fold_paper(paper, fold)
-    return print_paper(paper.copy())
+    return '\n'+print_paper(paper.copy())
 
 with open("day_13_input.txt") as f:
     dots, folds = f.read().split('\n\n')
