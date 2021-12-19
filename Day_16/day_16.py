@@ -29,6 +29,7 @@ class BitBuffer:
     def to_int(self,b):
         return int(b, 2)
 
+
 def parse_literal(bb):
     num = 0
     while True:       
